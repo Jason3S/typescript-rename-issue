@@ -2,17 +2,20 @@
   "name": "typescript-rename-issue",
   "version": "1.0.0",
   "description": "Demonstrate rename issue",
-  "type": "commonjs",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "build": "tsc -p .",
-    "clean": "rm -rf node_modules dist",
+    "build": "npm --workspaces run build",
+    "clean": "npm --workspaces run clean",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jason Dent",
   "license": "MIT",
-  "dependencies": {
-    "vscode-languageclient": "^9.0.1"
-  },
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "dependencies": {},
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",
     "@types/vscode": "1.80.0",
