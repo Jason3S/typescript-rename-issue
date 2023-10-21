@@ -15,7 +15,6 @@
     "server",
     "client"
   ],
-  "dependencies": {},
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",
     "@types/vscode": "1.80.0",
