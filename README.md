@@ -1,0 +1,2 @@
+# typescript-rename-issue
+ 
