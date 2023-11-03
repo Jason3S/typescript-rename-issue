@@ -2,7 +2,7 @@ import type { Command, Diagnostic } from 'vscode';
 import { CodeAction, CodeActionKind, Position, Range } from 'vscode';
 import type { Command as LanguageClientCommand } from 'vscode-languageclient/node';
 import {
-    CodeAction as LcCodeAction,
+    CodeAction as LsCodeAction,
     Diagnostic as LcDiagnostic,
     Position as LcPosition,
     Range as LcRange,
@@ -11,11 +11,11 @@ import {
 import { diagSeverityMap } from './MapDiagnosticSeverity';
 import type { RangeLike } from './models';
 
-export function isLcCodeAction(c: LanguageClientCommand | LcCodeAction): c is LcCodeAction {
-    return LcCodeAction.is(c);
+export function isLcCodeAction(c: LanguageClientCommand | LsCodeAction): c is LsCodeAction {
+    return LsCodeAction.is(c);
 }
 
-export function mapLcCodeAction(c: LcCodeAction): CodeAction {
+export function mapLcCodeAction(c: LsCodeAction): CodeAction {
     const kind = (c.kind !== undefined && CodeActionKind.Empty.append(c.kind)) || undefined;
     const action = new CodeAction(c.title, kind);
     action.command = c.command && mapLcCommand(c.command);
